@@ -10,6 +10,7 @@
     "test": "vitest --ui"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.5",
     "@vitest/ui": "^0.34.6",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",

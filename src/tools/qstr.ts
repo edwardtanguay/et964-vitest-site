@@ -1,3 +1,4 @@
+import * as qstr from './qstr';
 /**
  * capitalizeFirstLetter()
  * 
@@ -10,5 +11,7 @@ export const capitalizeFirstLetter = (text: string) => {
 }
 
 export const sentencize = (text: string) => {
-	return 'nnn';
+	let r = text;
+	r = qstr.capitalizeFirstLetter(text);
+	return 'lsakdjf';
 }

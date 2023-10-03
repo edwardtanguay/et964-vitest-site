@@ -1,10 +1,10 @@
 import { capitalizeFirstLetter, sentencize } from "./qstr";
 
-test('capitalizeFirstLetter', () => {
+describe('capitalizeFirstLetter', () => {
 	it('uppercases and lowercases correct letters', () => {
 		expect(capitalizeFirstLetter('test')).toBe('Test');
 		expect(capitalizeFirstLetter('Test')).toBe('Test');
-		expect(capitalizeFirstLetter('TEST222')).toBe('Test');
+		expect(capitalizeFirstLetter('TEST')).toBe('Test');
 		expect(capitalizeFirstLetter('two words')).toBe('Two words');
 	});
 	it('handles all edge cases', () => {
@@ -22,8 +22,31 @@ test('capitalizeFirstLetter', () => {
 	});
 });
 
-test('sentencize', () => {
-	it('capitalizes first character', () => {
-		expect(sentencize('test')).toBe('Test2');
+describe('sentencize', () => {
+	it('handles no capital and no punctuation mark', () => {
+		expect(sentencize('this is a text')).toBe('This is a text.');
+		expect(sentencize('hello')).toBe('Hello.');
+	});
+	it('handles no capital and punctuation mark', () => {
+		expect(sentencize('hello!')).toBe('Hello!');
+		expect(sentencize('hello?')).toBe('Hello?');
+	});
+	it('handles no capital and bad punctuation mark', () => {
+		expect(sentencize('hello,')).toBe('Hello.');
+		expect(sentencize('hello:')).toBe('Hello.');
+		expect(sentencize('hello;')).toBe('Hello.');
+		expect(sentencize('hello/')).toBe('Hello/.');
+	});
+	it('handles capital', () => {
+		expect(sentencize('Hello')).toBe('Hello.');
+		expect(sentencize('Hello///')).toBe('Hello///.');
+		expect(sentencize('This is a test.')).toBe('This is a test.');
+		expect(sentencize('AAA')).toBe('AAA.');
+	});
+	it('handles task examples', () => {
+		expect(sentencize('who was it?')).toBe('Who was it?');
+		expect(sentencize('i')).toBe('I.');
+		expect(sentencize('how many?')).toBe('How many?');
+		expect(sentencize('23')).toBe('23.');
 	});
 });

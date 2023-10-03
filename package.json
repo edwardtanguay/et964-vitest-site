@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest --ui"
+    "test": "vitest --ui",
+    "testcov": "vitest --coverage"
   },
   "devDependencies": {
     "@types/jest": "^29.5.5",
+    "@vitest/coverage-v8": "^0.34.6",
     "@vitest/ui": "^0.34.6",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
